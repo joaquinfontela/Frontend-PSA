@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
 import ProductsApp from "./SoporteSrc/Products/ProductsApp"
 import TicketsApp from "./SoporteSrc/Tickets/TicketsApp"
 import { Context } from "./SoporteSrc/context/Context"
-//import ProyectosApp from './ProyectosSrc/ProyectosApp'
+import Projects from './ProyectosSrc/views/Projects';
 
 const App = () => {
     const [productId, setProductId] = useState(-1)
@@ -18,6 +18,7 @@ const App = () => {
       <Context.Provider value={valueContext}>
       <BrowserRouter>
         <Routes>
+            <Route exact path="/" element={<Projects />} />
             <Route exact path="/soporte" element={<ProductsApp />} />
             <Route exact path="/soporte/:product_id/tickets" element={<TicketsApp />} />
         </Routes>

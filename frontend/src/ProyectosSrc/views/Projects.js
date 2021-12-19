@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ProjectsBoard from '../components/ProjectsBoard'
-import { Tabs, Tab} from 'react-bootstrap'
+import { Tabs, Tab } from 'react-bootstrap'
 import './Projects.css'
 import Project from '../components/Project';
 import ProjectForm from '../components/ProjectForm';

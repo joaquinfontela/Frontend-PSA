@@ -4,11 +4,14 @@ import { Card, Badge, Button, Collapse } from 'react-bootstrap'
 import ReactMarkdown from 'react-markdown'
 import { Link } from 'react-router-dom'
 import { Context } from "../context/Context"
+import TabButton from "../../Tab"
 
 export default function Product({ product }) {
   const context = useContext(Context)
 
   return (
+    <>
+    <TabButton />
     <Card className="mb-3">
       <Card.Body>
         <div className="d-flex justify-content-between">
@@ -34,5 +37,6 @@ export default function Product({ product }) {
         </Card.Text>
       </Card.Body>
     </Card>
+    </>
   )
 }
