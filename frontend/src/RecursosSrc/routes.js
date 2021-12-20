@@ -1,8 +1,8 @@
-import { CargaExitosaScreen } from "views/CargaExitosa";
-import { CargaFallidaScreen } from "views/CargaFallida";
-import { CargaScreen } from "views/CargaScreen";
-import { Home } from "views/Home";
-import { SearchScreen } from "views/SearchScreen";
+import { CargaExitosaScreen } from "./views/CargaExitosa";
+import { CargaFallidaScreen } from "./views/CargaFallida";
+import { CargaScreen } from "./views/CargaScreen";
+import { Home } from "./views/Home";
+import { SearchScreen } from "./views/SearchScreen";
 
 var routes = [
     {

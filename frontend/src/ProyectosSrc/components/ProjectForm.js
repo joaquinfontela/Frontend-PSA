@@ -32,8 +32,8 @@ export default class ProjectForm extends Component {
     }
 
     getEmployees(){
+        console.log(JSON.parse(localStorage.getItem("employees")))
         return JSON.parse(localStorage.getItem("employees"))
-
     }
 
     render() {

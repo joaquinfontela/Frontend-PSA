@@ -1,8 +1,8 @@
 import { Api } from "../api";
-import { ReportesList } from "components/ReportesList";
+import { ReportesList } from "../components/ReportesList";
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-modern-calendar-datepicker";
-import SelectDropDownComponent from "components/SelectDropDownComponent";
+import SelectDropDownComponent from "../components/SelectDropDownComponent";
 import { Modal } from "reactstrap";
 
 export const SearchScreen = () => {

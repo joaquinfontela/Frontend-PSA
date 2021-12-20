@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SelectDropDownComponent from "components/SelectDropDownComponent";
+import SelectDropDownComponent from "../components/SelectDropDownComponent";
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import DatePicker from "react-modern-calendar-datepicker";
 import NumericInput from "react-numeric-input";

@@ -30,13 +30,13 @@ import {
   DropdownMenu,
   DropdownItem,
   Container,
-  InputGroup,
   InputGroupText,
-  InputGroupAddon,
   Input,
 } from "reactstrap";
 
-import routes from "routes.js";
+import { InputGroup } from 'react-bootstrap'
+
+import routes from "../../routes.js";
 
 function Header(props) {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -130,11 +130,11 @@ function Header(props) {
           <form>
             <InputGroup className="no-border">
               <Input placeholder="Search..." />
-              <InputGroupAddon addonType="append">
+              <InputGroup.Addon addonType="append">
                 <InputGroupText>
                   <i className="nc-icon nc-zoom-split" />
                 </InputGroupText>
-              </InputGroupAddon>
+              </InputGroup.Addon>
             </InputGroup>
           </form>
           <Nav navbar>
