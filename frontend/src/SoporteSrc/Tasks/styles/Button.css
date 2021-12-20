@@ -1,10 +1,10 @@
-.center-button2{
+.center-button{
     display:flex;
     justify-content:center;
     align-item:center;
 }
 
-.width-button2{
-    width: 200px;
+.width-button{
+    width: 1300px;
     height: 35px;
 }

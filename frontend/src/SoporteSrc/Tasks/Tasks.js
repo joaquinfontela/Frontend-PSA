@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { Container } from "react-bootstrap"
 import { Context } from "../context/Context"
 import { Card, Badge, Button, Collapse, Form, Col } from 'react-bootstrap'
-import '../Tickets/styles/Button.css'
+import './styles/Button.css'
 
 const Tasks = ({ tasks }) => {
     const context = useContext(Context)
@@ -15,7 +15,7 @@ const Tasks = ({ tasks }) => {
         <Form.Group as={Col} xs="auto" className="center-button mt-4">
           <Button 
 	          className="center-button width-button" 
-	          variant="outline-dark">
+	          variant="outline-success">
 	          Crear tarea
       		</Button>
         </Form.Group>
