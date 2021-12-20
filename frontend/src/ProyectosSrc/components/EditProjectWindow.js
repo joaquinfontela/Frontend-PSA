@@ -12,8 +12,12 @@ export default class EditProjectWindow extends Component {
     constructor(props){
         super(props);
         let employees = JSON.parse(localStorage.getItem("employees"))
+        let start = this.props.values.start.split("/");
+        start = new Date(start[2],parseInt(start[1])-1,start[0])
+        let finish = this.props.values.finish.split("/");
+        finish = new Date(finish[2],parseInt(finish[1])-1,finish[0])
         this.state = {show:false, name:this.props.values.name, description:this.props.values.description,
-                      state:this.props.values.state, start:this.props.values.start, finish:this.props.values.finish,
+                      state:this.props.values.state, start:start, finish:finish,
                       leader_name:this.props.values.leader_name || 0, employees:employees, leader: this.props.values.leader}
         this.handleName = this.handleName.bind(this);
         this.handleDescription = this.handleDescription.bind(this);
@@ -31,7 +35,7 @@ export default class EditProjectWindow extends Component {
         try{
             let month = (parseInt(date.getMonth() + 1))
             toString(month)
-            let formattedDate = ( month + "/" + date.getDate() + "/" + date.getFullYear());
+            let formattedDate = ( date.getDate() + "/" + month + "/" + date.getFullYear() );
             return formattedDate;
         } catch(e){
             return date;
@@ -50,10 +54,10 @@ export default class EditProjectWindow extends Component {
         this.setState({state:e.target.value});
     }
     handleStart(start){
-        this.setState({start:start});
+        this.setState({start:(start)});
     }
     handleFinish(finish){
-        this.setState({finish:finish});
+        this.setState({finish:(finish)});
     }
     handleLeader(leader){
         let emp = JSON.parse(localStorage.getItem("employees")).find((e)=>e.id == leader)

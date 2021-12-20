@@ -100,6 +100,7 @@ export default class ProjectForm extends Component {
     }
 
     handlerSelectedFinishDate(selectedDate){
+        console.log("fecha",selectedDate)
         this.setState({finishDate:selectedDate});
     }
 

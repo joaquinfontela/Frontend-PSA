@@ -2,6 +2,7 @@ import axios from 'axios'
 
 export const createProject = async function(data){
     const route = 'https://desolate-journey-04573.herokuapp.com/api/project';
+    console.log("datos creados",data)
     const res = await axios.post(route,
         {
             headers: {'Access-Control-Allow-Origin':'*',

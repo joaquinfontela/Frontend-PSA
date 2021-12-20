@@ -4,7 +4,6 @@ import { Table, Spinner } from 'react-bootstrap'
 import ProjectCell from './ProjectCell'
 
 import { getProjects } from '../services/projects/getProjects'
-import { getAllEmployees } from '../services/team/getAllEmployees'
 
 export default class ProjectsBoard extends Component {
 
