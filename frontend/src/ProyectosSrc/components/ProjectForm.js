@@ -6,8 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Datepicker from './Datepicker'
 import './ProjectForm.css'
 import { createProject } from '../services/projects/createProject'
-import { Toast } from 'bootstrap'
-import ToastContainer from 'react-bootstrap/ToastContainer'
+import Alert from 'react-bootstrap/Alert'
 
 export default class ProjectForm extends Component {
 
@@ -39,6 +38,15 @@ export default class ProjectForm extends Component {
     render() {
         return (
             <div id="project-form-container">
+                {this.state.submitError &&
+                    <div id="create-error-toast-container">
+                        <Alert id="create-error-toast" variant="danger">
+                            <Alert.Heading>Error</Alert.Heading>
+                            <p>
+                            {this.state.errorMsg}
+                            </p>
+                        </Alert>
+                    </div>}   
                 <Form>
                     <Form.Group className="mb-3 left-align" controlId="exampleForm.ControlInput1">
                         <Form.Label>Nombre <span className="obligatory">*</span></Form.Label>
@@ -83,16 +91,6 @@ export default class ProjectForm extends Component {
                     </Form.Group>
                     <Button id="create-project-button" type="submit" onClick={this.handlerSubmit} variant="success">Crear proyecto</Button>
                 </Form> 
-                {this.state.submitError &&
-                <ToastContainer className="p-3" position="top-end">
-                    <Toast>
-                        <Toast.Header closeButton={false}>
-                            <strong className="me-auto">Error</strong>
-                            <small>Descripción</small>
-                        </Toast.Header>
-                        <Toast.Body>{this.state.errorMsg}</Toast.Body>
-                    </Toast>
-                </ToastContainer>}          
             </div>
         )
     }
@@ -108,6 +106,8 @@ export default class ProjectForm extends Component {
     async handlerSubmit(e){
         e.preventDefault();
         let validation = this.validForm();
+        console.log("is_valid:",validation.isValid)
+        console.log("msg:",validation.message)
         if(validation.isValid){
             let res = await createProject({name:this.state.name, description:this.state.description,
                 start:this.state.startDate,finish:this.state.finishDate,
@@ -147,14 +147,13 @@ export default class ProjectForm extends Component {
         let message = '';
         let lname = this.state.name.length;
         let ldescrp = this.state.description.length;
-        if(lname <= 0 && lname > 20){
+        if(lname <= 0 || lname > 20){
             valid = false;
             message = 'El nombre debe contener entre 0 y 20 caracteres'
         }
-        else if(ldescrp <= 0 && ldescrp > 50){
+        else if(ldescrp <= 0 || ldescrp > 50){
             valid = false;
             message = 'La descripción debe contener entre 0 y 50 caracteres'
-            return {isValid: valid, message: message}
         }
         return {isValid: valid, message: message}
     }
