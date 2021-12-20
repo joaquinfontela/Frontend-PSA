@@ -21,7 +21,7 @@ export default class Project extends Component {
 
     constructor(props){
         super(props);
-        this.state = {team:this.props.values.team, update:false, employees:[], leader:this.props.values.leader, leader_name:this.props.values.leader_name, hours:'...'}
+        this.state = {team:this.props.values.team, update:false, employees:[], leader:this.props.values.leader, leader_name:this.props.values.leader_name, hours:'Cargando...'}
         this.handlerUpdate = this.handlerUpdate.bind(this);
         this.handlerDelete = this.handlerDelete.bind(this);
         this.handleCreateTask = this.handleCreateTask.bind(this);
@@ -67,7 +67,7 @@ export default class Project extends Component {
                                 <Card.Subtitle className="project-subtitle">Asignado a</Card.Subtitle>
                                 <Card.Text className="project-value project-leader">{this.state.leader_name != ' ' ? this.state.leader_name : "Sin asignar"}</Card.Text>
                                 <Card.Subtitle className="project-subtitle">Horas acumuladas</Card.Subtitle>
-                                <Card.Text className="project-value project-hours">{this.state.hours || 0}hs.</Card.Text>
+                                <Card.Text className="project-value project-hours">{this.state.hours || 0}</Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>
