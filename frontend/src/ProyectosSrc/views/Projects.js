@@ -58,7 +58,7 @@ export default class Projects extends Component {
         let projects = this.state.project.filter( (project) => project.id != id);
         projects.push(updated);
         this.setState({project:projects}, () => {
-            this.setState({key:!this.state.key})
+            this.setState({update:!this.state.update})
         })
     }
 
