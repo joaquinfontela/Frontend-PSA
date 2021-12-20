@@ -17,24 +17,26 @@ export default class ProjectsBoard extends Component {
 
     async componentDidMount(){
         let fetched =  await getProjects();
-        let employees = await getAllEmployees();
-        fetched.results.map(async (proj) => {
-
-            let id_leader = proj.leader;
-            if(id_leader == 0 || id_leader == undefined || id_leader == null){
-                proj.leader = 0;
-                Object.assign(proj,{leader_name:"Sin asignar"})
-                
-            }
-            else{
-                let info_leader = employees.results.filter((e) => id_leader == e.id)[0];
-                proj.leader = id_leader;
-                Object.assign(proj,{leader_name:info_leader.name + ' ' + info_leader.last_name})
-            }
-        })
-        this.setState({projects : fetched.results, employees: employees}, () => {
-            this.setState({ fetched: true })
-        })
+        let stored = localStorage.getItem("employees")
+        let employees = JSON.parse(stored)
+        if(employees != null || employees != undefined){
+            fetched[1].map(async (proj) => {
+                let id_leader = proj.leader;
+                if(id_leader == 0 || id_leader == undefined || id_leader == null){
+                    proj.leader = 0;
+                    Object.assign(proj,{leader_name:"Sin asignar"})
+                    
+                }
+                else{
+                    let info_leader = employees.filter((e) => id_leader == e.id)[0];
+                    proj.leader = id_leader;
+                    Object.assign(proj,{leader_name:info_leader.name + ' ' + info_leader.last_name})
+                }
+            })
+            this.setState({projects : fetched[1], employees: employees}, () => {
+                this.setState({ fetched: true })
+            })
+        }
     }
 
     handlerClick(project){
