@@ -124,17 +124,16 @@ const CreateReport = ({ projects }) => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail" as={Col}>
-            <Form.Label>Elegir una tarea</Form.Label>
+            <Form.Label>Ingresar id tarea</Form.Label>
             <Form.Control 
-            as="select"
+            type="number"
+            className="name-input"
+            placeholder="Ingresar tarea"
             value={taskId}
             onChange={(e) => setTaskId(e.target.value)}
-            >
-            {tasks.map((task) => {
-              <option value={task.name}>{task.id}</option>
-            })}
-            </Form.Control>
+            />
           </Form.Group>
+
         </Form>
         <Modal.Body>
 
