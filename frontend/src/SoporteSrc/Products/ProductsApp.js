@@ -19,17 +19,16 @@ const ProductsApp = () => {
       })
     }
 
+    //<ProductsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
     return (
     <Container className="my-4">
       <h1 className="mb-4">Módulo de Soporte</h1>
       <SearchForm params={params} onParamChange={handleParamChange} />
-      <ProductsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
       {loading && <h1>Loading...</h1>}
       {error && <h1>Error. Try Refreshing.</h1>}
       {products.map(prod => {
         return <Product key={prod.id} product={prod} />
       })}
-      <ProductsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
     </Container>
     );
 }

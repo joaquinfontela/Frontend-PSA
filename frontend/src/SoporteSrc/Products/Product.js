@@ -9,7 +9,6 @@ export default function Product({ product }) {
   const context = useContext(Context)
 
   return (
-    <>
     <Card className="mb-3">
       <Card.Body>
         <div className="d-flex justify-content-between">
@@ -35,6 +34,5 @@ export default function Product({ product }) {
         </Card.Text>
       </Card.Body>
     </Card>
-    </>
   )
 }

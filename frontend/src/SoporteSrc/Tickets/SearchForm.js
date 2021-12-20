@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form, Col, Button } from 'react-bootstrap'
 import './styles/Button.css'
+import CreateTicket from "../Modals/CreateTicket"
 
 export default function SearchForm({ params, onParamChange }) {
+  const [active, setActive] = useState(false)
+
+  const handleClick = () => {
+    setActive(!active)
+  }
+
   return (
     <Form className="mb-4">
         <Form.Group as={Col}>
@@ -11,9 +18,7 @@ export default function SearchForm({ params, onParamChange }) {
           placeholder="Ingrese un título de un ticket"/>
         </Form.Group>
         <Form.Group as={Col} xs="auto" className="center-button mt-4">
-          <Button className="center-button width-button" variant="outline-dark">
-          Crear ticket
-          </Button>
+          <CreateTicket />
         </Form.Group>
     </Form>
   )
