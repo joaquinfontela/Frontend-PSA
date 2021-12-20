@@ -40,7 +40,7 @@ export default function Ticket({ ticket }) {
 		            variant={open ? "outline-secondary" : "outline-primary"}
 		            className="mt-4"
 		          >
-		            {open ? 'Ocultar detalles' : 'Ver detalles'}
+		            {open ? 'Ocultar descripción' : 'Ver descripción'}
 		          </Button>
 		        </Card.Text>
 		        <Collapse in={open}>

@@ -88,8 +88,8 @@ const CreateTicket = () => {
   return (
     <>
       <Button 
-          className="center-button width-button" 
-          variant="outline-dark"
+          className="center-button width-button mt-2" 
+          variant="outline-success"
           onClick={() => handleShow()}>
           Crear ticket
       </Button>
