@@ -41,6 +41,7 @@ export default class EditTaskWindow extends Component {
     }
     handleSubmit(){
         this.props.onSubmit(this.state);
+        this.handleClose();
     }
 
     render() {

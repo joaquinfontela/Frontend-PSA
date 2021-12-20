@@ -9,3 +9,7 @@
 #create-error-toast{
     top: 0;
 }
+
+.obligatory{
+    color:red;
+}

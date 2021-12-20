@@ -86,7 +86,7 @@ export default class Project extends Component {
                                 </Row>
                             </Card.Header>
                             <Card.Body>
-                                <TasksBoard id={this.props.values.id} />
+                                <TasksBoard key={this.state.update} id={this.props.values.id} />
                             </Card.Body>
                         </Card>
                     </Col>
@@ -106,7 +106,7 @@ export default class Project extends Component {
 
     async handleCreateTask(values){
         let res = await createTask(this.props.values.id, values);
-        this.props.onUpdate(this.props.values.id, this.props.values.leader_name)
+        this.setState({update: !this.state.update})
     }
 
     async handlerDelete(){
