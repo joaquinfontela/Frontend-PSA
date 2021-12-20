@@ -98,7 +98,7 @@ const CreateTicket = () => {
         <Modal.Header closeButton>
           <Modal.Title>Crear un Ticket</Modal.Title>
         </Modal.Header>
-        <Form className="signup-form">
+        <Form className="mb-4 row">
         	<Form.Group className="mb-3" controlId="formBasicEmail" as={Col}>
 				    <Form.Control 
 				    type="text"

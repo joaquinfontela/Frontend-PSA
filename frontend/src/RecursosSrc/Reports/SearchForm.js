@@ -1,9 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Form, Col, Button, Row } from 'react-bootstrap'
 import './styles/Button.css'
 import CreateReport from "../Modals/CreateReport"
 
 export default function SearchForm({ params, onParamChange }) {
+  const [projects, setProjects] = useState([])
+  const obtainProjects = async () => {
+    //setActiveLoading(true)
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const response = await fetch("https://arcane-journey-13639.herokuapp.com/projects", requestOptions);
+    const data = await response.json()
+    //console.log(data.data)
+    setProjects(data.data)
+  }
+
+  useEffect(() => {
+    obtainProjects() 
+  }, [])
 
   return (
     <Form className="mb-4 row">
@@ -26,7 +44,7 @@ export default function SearchForm({ params, onParamChange }) {
           />
         </Form.Group>
         <Form.Group as={Col} xs="auto" className="center-button mt-4">
-          <CreateReport />
+          <CreateReport projects={projects}/>
         </Form.Group>
     </Form>
   )

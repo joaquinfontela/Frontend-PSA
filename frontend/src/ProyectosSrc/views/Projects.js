@@ -6,6 +6,7 @@ import Project from '../components/Project';
 import ProjectForm from '../components/ProjectForm';
 import { getProject } from '../services/projects/getProject'
 import { getAllEmployees } from '../services/team/getAllEmployees'
+import TabButton from "../../Tab"
 
 export default class Projects extends Component {
 
@@ -65,6 +66,7 @@ export default class Projects extends Component {
     render() {
         return (
             this.state.show && <div id="projects-view">
+                <TabButton />
                 <Tabs onSelect={(key) => {this.handlerClickTab(key)}} activeKey={this.state.active} id="uncontrolled-tab-example" className="mb-3">
                     <Tab  eventKey="projects" title="Proyectos">
                         <ProjectsBoard onUpdate={this.handleUpdate} key={this.state.update} onClick={this.handlerClickProject} />

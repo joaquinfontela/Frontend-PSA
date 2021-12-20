@@ -3,6 +3,7 @@ import useFetchJobs from "./UseFetchJobs"
 import { Container } from "react-bootstrap"
 import Report from "./Report"
 import SearchForm from "./SearchForm"
+import TabButton from "../../Tab"
 
 const ReportsApp = () => {
     const [params, setParams] = useState({})
@@ -22,6 +23,7 @@ const ReportsApp = () => {
 
     return (
     <Container className="my-4">
+      <TabButton />
       <h1 className="mb-4">Módulo de Recursos</h1>
       <SearchForm params={params} onParamChange={handleParamChange} />
       {loading && <h1>Loading...</h1>}

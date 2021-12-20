@@ -4,8 +4,9 @@ import { Container } from "react-bootstrap"
 import Product from "./Product"
 import ProductsPagination from "./ProductsPagination"
 import SearchForm from "./SearchForm"
+import TabButton from "../../Tab"
 
-const ProductsApp = () => {
+const ProductsApp = ({ history }) => {
     const [params, setParams] = useState({})
     const [page, setPage] = useState(1)
     const { products, loading, error, hasNextPage } = useFetchJobs(params, page)
@@ -22,6 +23,7 @@ const ProductsApp = () => {
     //<ProductsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
     return (
     <Container className="my-4">
+      <TabButton history={history}/>
       <h1 className="mb-4">Módulo de Soporte</h1>
       <SearchForm params={params} onParamChange={handleParamChange} />
       {loading && <h1>Loading...</h1>}
