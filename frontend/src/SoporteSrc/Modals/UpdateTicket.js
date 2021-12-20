@@ -80,7 +80,7 @@ const UpdateTicket = ({ ticket }) => {
     <>
       <Button 
           className="float-right" 
-          variant="outline-dark"
+          variant="info"
           onClick={() => handleShow()}>
           Editar ticket
       </Button>
